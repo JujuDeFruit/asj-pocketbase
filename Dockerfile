@@ -7,8 +7,7 @@ RUN apk add --no-cache unzip ca-certificates
 ADD https://github.com/pocketbase/pocketbase/releases/download/v${PB_VERSION}/pocketbase_${PB_VERSION}_linux_amd64.zip /tmp/pb.zip
 RUN unzip /tmp/pb.zip -d /pb/
 
-# ADD ./pb-data /pb/pb_data
-VOLUME /pb/pb_data
+COPY ./pb-data/data.db /pb/pb_data/data.db
 
 RUN /pb/pocketbase superuser upsert "$PB_ADMIN_EMAIL" "$PB_ADMIN_PASSWORD" --dir=/pb_data
 
