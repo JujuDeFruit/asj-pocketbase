@@ -9,7 +9,7 @@ RUN unzip /tmp/pb.zip -d /pb/
 
 COPY data.db /pb/pb_data/data.db
 
-RUN /pb/pocketbase superuser upsert "$PB_ADMIN_EMAIL" "$PB_ADMIN_PASSWORD" --dir=/pb_data
+RUN /pb/pocketbase superuser upsert "$PB_ADMIN_EMAIL" "$PB_ADMIN_PASSWORD" --dir=/pb/pb_data
 
 EXPOSE 8090
 
