@@ -1,5 +1,7 @@
 FROM alpine:latest
 ARG PB_VERSION=0.37.1
+ARG PB_ADMIN_EMAIL
+ARG PB_ADMIN_PASSWORD
 
 RUN apk add --no-cache unzip ca-certificates
 
