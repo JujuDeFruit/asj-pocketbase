@@ -12,5 +12,4 @@ COPY data.db /pb/pb_data/data.db
 EXPOSE 8090
 
 # start PocketBase
-CMD /pb/pocketbase superuser upsert "$PB_ADMIN_EMAIL" "$PB_ADMIN_PASSWORD" --dir=/pb/pb_data && \
-    /pb/pocketbase serve --http=0.0.0.0:8090 --dir=/pb/pb_data
+CMD ["/bin/sh", "-c", "/pb/pocketbase superuser upsert \"$PB_ADMIN_EMAIL\" \"$PB_ADMIN_PASSWORD\" --dir=/pb/pb_data && /pb/pocketbase serve --http=0.0.0.0:8090 --dir=/pb/pb_data"]
